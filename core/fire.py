@@ -25,6 +25,10 @@ import asyncpg
 import typing
 import json
 
+# fuck it, crab in the code
+# 🦀
+# and of course, vscode isn't rendering the crab. my life is ruined...
+
 class Fire(commands.Bot):
 	def __init__(self, *args, **kwargs):
 		super().__init__(*args, **kwargs)
