@@ -16,9 +16,34 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
 from discord.ext import commands
+import datetime
+import logging
 import discord
 
-class Command(commands.command):
-	def __init__(self, **kwargs):
-		super().__init__(**kwargs)
-        self.permission = kwargs.pop('permission')
+class Ready(commands.Cog):
+	def __init__(self, bot):
+		self.bot = bot
+
+	@commands.Cog.listener()
+	async def on_ready(self):
+        print("-------------------------")
+        print(f"Bot: {self.bot.user}")
+        print(f"ID: {self.bot.user.id}")
+        print(f"Guilds: {len(self.bot.guilds)}")
+        print(f"Users: {len(self.bot.users)}")
+        print("-------------------------")
+        logging.info("-------------------------")
+        logging.info(f"Bot: {self.bot.user}")
+        logging.info(f"ID: {self.bot.user.id}")
+        logging.info(f"Guilds: {len(self.bot.guilds)}")
+        logging.info(f"Users: {len(self.bot.users)}")
+        logging.info("-------------------------")
+        print("Loaded!")
+        logging.info(f"LOGGING START ON {datetime.datetime.utcnow()}")
+
+def setup(bot):
+	try:
+		bot.add_cog(Ready(bot))
+	except Exception as e:
+		errortb = ''.join(traceback.format_exception(type(e), e, e.__traceback__))
+		print(f'Error while adding cog "Ready";\n{errortb}')

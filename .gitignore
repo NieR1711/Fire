@@ -111,14 +111,9 @@ venv.bak/
 .vscode/
 
 #secret stuff
-api.py
-api.bat
-fire.bat
-lavalink.bat
+*.bat
 application.yml
-config_prod.json
-config_dev.json
-fire.db
+config.json
 
 # other stuff
 bot.log
@@ -126,10 +121,7 @@ logs/
 Soundboard/
 lavalink.jar
 bfg.jar
-*.png
-*.mp3
 fishin
-*.mp4
 
 # jetbrains ide
 .idea
