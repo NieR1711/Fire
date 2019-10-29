@@ -16,23 +16,13 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 """
 
 from discord.ext import commands
-from discord.ext.commands import has_permissions, MissingPermissions
-from discord import Webhook, AsyncWebhookAdapter
+from core.fire import Fire
 import discord
-import logging
-import datetime
-import os
-import json
 import aiohttp
 import asyncio
-import random
-import typing
 import asyncpg
-import traceback
-import functools
-import humanfriendly
 
-async def get_pre(bot, message):
+async def get_pre(bot: Fire, message: discord.Message):
 	if not message.guild:
 		return "$"
 	query = 'SELECT * FROM prefixes WHERE gid = $1;'
@@ -43,7 +33,7 @@ async def get_pre(bot, message):
 		prefix = "$"
 	return commands.when_mentioned_or(prefix, 'fire ')(bot, message)
 
-bot = commands.Bot(command_prefix=get_pre, status=discord.Status.idle, activity=discord.Game(name="fire.gaminggeek.dev"), case_insensitive=True)
+bot = Fire(command_prefix=get_pre, status=discord.Status.idle, activity=discord.Game(name="fire.gaminggeek.dev"), case_insensitive=True)
 bot.dev = True
 
 @bot.check
