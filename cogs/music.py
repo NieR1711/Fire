@@ -7,16 +7,16 @@ If a copy of the MOL was not distributed with this file, You can obtain one at
 https://gist.github.com/EvieePy/bfe0332ad7bff98691f51686ded083ea.
 """
 
-import asyncio
-import datetime
-import discord
+import asyncio 
+import datetime #time
+import discord #discord
 import humanize
 import itertools
 import functools
-import math
-import random
-import json
-import re
+import math #Math extension tools
+import random #random numbers
+import json #can open json files
+import re #regular expression
 import wavelink
 import asyncpg
 from collections import deque
